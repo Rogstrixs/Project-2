@@ -1,3 +1,6 @@
+let currentQuestion = 0;
+let score = 0;
+
 const questions = [
     {
         question: "How many Dragon Balls are there?",
@@ -49,27 +52,23 @@ const questions = [
         answers: ["Naruto", "Hinata", "Itachi", "Gaara"],
         correct: 3
     },
-    // Add more questions here...
 ];
 
-let currentQuestion = 0;
-let score = 0;
-
 const questionElement = document.getElementById("question");
+const answersElement = document.getElementById("answers");
+const submitButton = document.getElementById("submit-btn");
 const resultElement = document.getElementById("result");
 const scoreElement = document.getElementById("score");
-const submitButton = document.getElementById("submit-btn");
+const levelElement = document.getElementById("level");
 const restartButton = document.getElementById("restart-btn");
-const option1Element = document.getElementById("option1-text");
-const option2Element = document.getElementById("option2-text");
-const option3Element = document.getElementById("option3-text");
-const option4Element = document.getElementById("option4-text");
 
-// Load the first question
-loadQuestion();
-
-submitButton.addEventListener("click", handleSubmit);
-restartButton.addEventListener("click", restartQuiz);
+function loadQuestion() {
+    const question = questions[currentQuestion];
+    questionElement.textContent = question.question;
+    for (let i = 0; i < answersElement.children.length; i++) {
+        answersElement.children[i].children[1].textContent = question.answers[i];
+    }
+}
 
 function handleSubmit(event) {
     event.preventDefault();
@@ -82,14 +81,31 @@ function handleSubmit(event) {
     }
     currentQuestion++;
     if (currentQuestion >= questions.length) {
-        currentQuestion = 0;
-        scoreElement.textContent = "Your final score is: " + score + " / " + questions.length;
-        const level = getLevel(score);
-        resultElement.textContent += ` You are a ${level}!`;
+        showResults();
     } else {
         loadQuestion();
         scoreElement.textContent = "Score: " + score + " / " + questions.length;
     }
+}
+
+function showResults() {
+    scoreElement.textContent = "Your final score is: " + score + " / " + questions.length;
+    const level = getLevel(score);
+    resultElement.textContent += ` You are a ${level}!`;
+    levelElement.textContent = `Level: ${level}`;
+    submitButton.disabled = true;
+    restartButton.disabled = false;
+}
+
+function restartQuiz() {
+    currentQuestion = 0;
+    score = 0;
+    loadQuestion();
+    scoreElement.textContent = "Score: 0 / " + questions.length;
+    resultElement.textContent = "";
+    levelElement.textContent = "";
+   submitButton.disabled = false;
+    restartButton.disabled = true;
 }
 
 function getLevel(score) {
@@ -101,18 +117,6 @@ function getLevel(score) {
     return "Weeaboo";
 }
 
-function restartQuiz() {
-    currentQuestion = 0;
-    score = 0;
-    loadQuestion();
-    scoreElement.textContent = "Score: 0 / " + questions.length;
-    resultElement.textContent = "";
-}
-
-function loadQuestion() {
-    questionElement.textContent = questions[currentQuestion].question;
-    option1Element.textContent = questions[currentQuestion].answers[0];
-    option2Element.textContent = questions[currentQuestion].answers[1];
-    option3Element.textContent = questions[currentQuestion].answers[2];
-    option4Element.textContent = questions[currentQuestion].answers[3];
-}
+loadQuestion();
+submitButton.addEventListener("click", handleSubmit);
+restartButton.addEventListener("click", restartQuiz);
