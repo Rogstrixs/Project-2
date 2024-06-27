@@ -16,9 +16,9 @@ let currentQuestion = 0;
 let score = 0;
 
 const questionElement = document.getElementById("question");
-const formElement = document.getElementById("quiz-form");
 const resultElement = document.getElementById("result");
 const scoreElement = document.getElementById("score");
+const submitButton = document.getElementById("submit-btn");
 const restartButton = document.getElementById("restart-btn");
 const option1Element = document.getElementById("option1-text");
 const option2Element = document.getElementById("option2-text");
@@ -28,7 +28,7 @@ const option4Element = document.getElementById("option4-text");
 // Load the first question
 loadQuestion();
 
-formElement.addEventListener("submit", handleSubmit);
+submitButton.addEventListener("click", handleSubmit);
 restartButton.addEventListener("click", restartQuiz);
 
 function handleSubmit(event) {
