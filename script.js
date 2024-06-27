@@ -1,65 +1,54 @@
-const quizData = [
+const questions = [
     {
         question: "What is the capital of France?",
-        answers: {
-            a: "Berlin",
-            b: "Madrid",
-            c: "Paris",
-            d: "Lisbon"
-        },
-        correct: "c"
+        answers: ["Paris", "London", "Berlin", "Rome"],
+        correct: 0
     },
-    // Add more questions as needed
+    {
+        question: "What is the largest planet in our solar system?",
+        answers: ["Earth", "Saturn", "Jupiter", "Uranus"],
+        correct: 2
+    },
+    // Add more questions here...
 ];
 
-const quizContainer = document.getElementById('quiz');
-const resultsContainer = document.getElementById('results');
-const submitButton = document.getElementById('submit');
-const restartButton = document.getElementById('restart');
+let currentQuestion = 0;
+let score = 0;
 
-function buildQuiz() {
-    const output = [];
-    quizData.forEach((currentQuestion, questionNumber) => {
-        const answers = [];
-        for (letter in currentQuestion.answers) {
-            answers.push(
-                `<label>
-                    <input type="radio" name="question${questionNumber}" value="${letter}">
-                    ${letter} : ${currentQuestion.answers[letter]}
-                </label>`
-            );
-        }
-        output.push(
-            `<div class="question">${currentQuestion.question}</div>
-            <div class="answers">${answers.join('')}</div>`
-        );
-    });
-    quizContainer.innerHTML = output.join('');
-}
+const questionElement = document.getElementById("question");
+const formElement = document.getElementById("quiz-form");
+const resultElement = document.getElementById("result");
+const scoreElement = document.getElementById("score");
+const restartButton = document.getElementById("restart-btn");
 
-function showResults() {
-    const answerContainers = quizContainer.querySelectorAll('.answers');
-    let numCorrect = 0;
-    quizData.forEach((currentQuestion, questionNumber) => {
-        const answerContainer = answerContainers[questionNumber];
-        const selector = `input[name=question${questionNumber}]:checked`;
-        const userAnswer = (answerContainer.querySelector(selector) || {}).value;
-        if (userAnswer === currentQuestion.correct) {
-            numCorrect++;
-            answerContainers[questionNumber].style.color = 'green';
-        } else {
-            answerContainers[questionNumber].style.color = 'red';
-        }
-    });
-    resultsContainer.innerHTML = `${numCorrect} out of ${quizData.length}`;
+formElement.addEventListener("submit", handleSubmit);
+restartButton.addEventListener("click", restartQuiz);
+
+function handleSubmit(event) {
+    event.preventDefault();
+    const userAnswer = parseInt(document.querySelector("input[name='answer']:checked").value);
+    if (userAnswer === questions[currentQuestion].correct) {
+        score++;
+        resultElement.textContent = "Correct!";
+    } else {
+        resultElement.textContent = "Incorrect. The correct answer is " + questions[currentQuestion].answers[questions[currentQuestion].correct];
+    }
+    currentQuestion++;
+    if (currentQuestion >= questions.length) {
+        currentQuestion = 0;
+        score = 0;
+        resultElement.textContent = "";
+        scoreElement.textContent = "Your final score is: " + score + " / " + questions.length;
+    } else {
+        questionElement.textContent = questions[currentQuestion].question;
+        scoreElement.textContent = "Score: " + score + " / " + questions.length;
+    }
 }
 
 function restartQuiz() {
-    buildQuiz();
-    resultsContainer.innerHTML = '';
+    currentQuestion = 0;
+    score = 0;
+    questionElement.textContent = questions[currentQuestion].question;
+    scoreElement.textContent = "Score: 0 / " + questions.length;
+    resultElement.textContent = "";
 }
-
-submitButton.addEventListener('click', showResults);
-restartButton.addEventListener('click', restartQuiz);
-
-buildQuiz();
