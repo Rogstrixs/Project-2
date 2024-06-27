@@ -1,13 +1,53 @@
 const questions = [
     {
-        question: "What is the capital of France?",
-        answers: ["Paris", "London", "Berlin", "Rome"],
+        question: "How many Dragon Balls are there?",
+        answers: ["two", "seven", "nine", "five"],
+        correct: 1
+    },
+    {
+        question: "Which anime series revolves around a boy who sells his soul to a demon?",
+        answers: ["Demon Slayer", "Jujutsu Kaisen", "Black Butler", "Death Note"],
+        correct: 2
+    },
+    {
+        question: "An outcast prince takes over the revolution by controlling the mind of others. Who is he?",
+        answers: ["Lelouch vi Britannia", "Zen Wistaria", "Prince Arslan", "Alibaba Saluja"],
         correct: 0
     },
     {
-        question: "What is the largest planet in our solar system?",
-        answers: ["Earth", "Saturn", "Jupiter", "Uranus"],
+        question: "Kaneki was tortured for ten days. Even his hair turned white from black, and his fingers and toes were cut off. Who did this to him?",
+        answers: ["Dr. Kano", "Yamori", "Kisho Arima", "Shu Tsukiyama"],
+        correct: 1
+    },
+    {
+        question: "In the anime series 'Bleach,' what is the name of the main character who becomes a Soul Reaper?",
+        answers: ["Izuku Midoriya", "Thorfinn", "Zenitsu Agatsuma", "Ichigo Kurosaki"],
+        correct: 3
+    },
+    {
+        question: "What is the name of the virtual reality game featured in the anime series 'Sword Art Online'?",
+        answers: ["Sword Art Online", "Gulag", "Log Horizon", "Shangri-La Frontier"],
+        correct: 0
+    },
+    {
+        question: "In the anime series 'One Punch Man,' what is the name of the overpowered superhero who defeats enemies with a single punch?",
+        answers: ["Tatsumaki", "Metal Knight", "Saitama", "Genos"],
         correct: 2
+    },
+    {
+        question: "What is the name of the navigator and thief who joins Luffy on his Journey in the 'One Piece' manga series?",
+        answers: ["Nami", "Franky", "Brook", "Zoro"],
+        correct: 0
+    },
+    {
+        question: "Who is the archaeologist and former assassin in the Straw Hat Pirates crew in the 'One Piece' manga series?",
+        answers: ["Sanji", "Nico", "Chopper", "Usopp"],
+        correct: 1
+    },
+    {
+        question: "Which character is the host of the One-Tail in the 'Naruto' manga series?",
+        answers: ["Naruto", "Hinata", "Itachi", "Gaara"],
+        correct: 3
     },
     // Add more questions here...
 ];
