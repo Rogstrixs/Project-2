@@ -43,8 +43,6 @@ function handleSubmit(event) {
     currentQuestion++;
     if (currentQuestion >= questions.length) {
         currentQuestion = 0;
-        score = 0;
-        resultElement.textContent = "";
         scoreElement.textContent = "Your final score is: " + score + " / " + questions.length;
     } else {
         loadQuestion();
