@@ -84,10 +84,21 @@ function handleSubmit(event) {
     if (currentQuestion >= questions.length) {
         currentQuestion = 0;
         scoreElement.textContent = "Your final score is: " + score + " / " + questions.length;
+        const level = getLevel(score);
+        resultElement.textContent += ` You are a ${level}!`;
     } else {
         loadQuestion();
         scoreElement.textContent = "Score: " + score + " / " + questions.length;
     }
+}
+
+function getLevel(score) {
+    if (score <= 1) return "Newbie";
+    if (score <= 3) return "Anime Lovers";
+    if (score <= 5) return "Otaku";
+    if (score <= 7) return "Otamega";
+    if (score <= 9) return "Hikikimori";
+    return "Weeaboo";
 }
 
 function restartQuiz() {
