@@ -20,6 +20,10 @@ const formElement = document.getElementById("quiz-form");
 const resultElement = document.getElementById("result");
 const scoreElement = document.getElementById("score");
 const restartButton = document.getElementById("restart-btn");
+const option1Element = document.getElementById("option1");
+const option2Element = document.getElementById("option2");
+const option3Element = document.getElementById("option3");
+const option4Element = document.getElementById("option4");
 
 formElement.addEventListener("submit", handleSubmit);
 restartButton.addEventListener("click", restartQuiz);
@@ -41,6 +45,10 @@ function handleSubmit(event) {
         scoreElement.textContent = "Your final score is: " + score + " / " + questions.length;
     } else {
         questionElement.textContent = questions[currentQuestion].question;
+        option1Element.textContent = questions[currentQuestion].answers[0];
+        option2Element.textContent = questions[currentQuestion].answers[1];
+        option3Element.textContent = questions[currentQuestion].answers[2];
+        option4Element.textContent = questions[currentQuestion].answers[3];
         scoreElement.textContent = "Score: " + score + " / " + questions.length;
     }
 }
@@ -49,6 +57,10 @@ function restartQuiz() {
     currentQuestion = 0;
     score = 0;
     questionElement.textContent = questions[currentQuestion].question;
+    option1Element.textContent = questions[currentQuestion].answers[0];
+    option2Element.textContent = questions[currentQuestion].answers[1];
+    option3Element.textContent = questions[currentQuestion].answers[2];
+    option4Element.textContent = questions[currentQuestion].answers[3];
     scoreElement.textContent = "Score: 0 / " + questions.length;
     resultElement.textContent = "";
 }
