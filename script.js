@@ -82,12 +82,18 @@ function handleSubmit(event) {
     }
     currentQuestion++;
     if (currentQuestion >= questions.length) {
-        currentQuestion = 0;
-        scoreElement.textContent = "Your final score is: " + score + " / " + questions.length;
+        showResults();
     } else {
         loadQuestion();
         scoreElement.textContent = "Score: " + score + " / " + questions.length;
     }
+}
+
+function showResults() {
+    scoreElement.textContent = "Your final score is: " + score + " / " + questions.length;
+    resultElement.textContent = "";
+    submitButton.disabled = true;
+    restartButton.disabled = false;
 }
 
 function restartQuiz() {
@@ -96,6 +102,8 @@ function restartQuiz() {
     loadQuestion();
     scoreElement.textContent = "Score: 0 / " + questions.length;
     resultElement.textContent = "";
+    submitButton.disabled = false;
+    restartButton.disabled = true;
 }
 
 function loadQuestion() {
