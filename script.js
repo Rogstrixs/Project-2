@@ -20,10 +20,10 @@ const formElement = document.getElementById("quiz-form");
 const resultElement = document.getElementById("result");
 const scoreElement = document.getElementById("score");
 const restartButton = document.getElementById("restart-btn");
-const option1Element = document.getElementById("option1");
-const option2Element = document.getElementById("option2");
-const option3Element = document.getElementById("option3");
-const option4Element = document.getElementById("option4");
+const option1Element = document.getElementById("option1-text");
+const option2Element = document.getElementById("option2-text");
+const option3Element = document.getElementById("option3-text");
+const option4Element = document.getElementById("option4-text");
 
 formElement.addEventListener("submit", handleSubmit);
 restartButton.addEventListener("click", restartQuiz);
