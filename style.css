@@ -1,8 +1,8 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #212121; /* Dark mode background */
-    color: #ccc; /* Light gray text */
-    text-align: center; /* Center all text */
+    background-color: #212121;
+    color: #ccc;
+    text-align: center; 
     display: flex;
     justify-content: center;
     align-items: center;
@@ -11,48 +11,48 @@ body {
 }
 
 main {
-    background-color: #333; /* Dark mode background */
+    background-color: #333; 
     padding: 30px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     width: 80%;
     max-width: 600px;
-    margin: 40px auto; /* Center horizontally */
+    margin: 40px auto; 
 }
 
 header {
-    background-color: #444; /* Dark mode background */
+    background-color: #444; 
     padding: 10px;
     border-bottom: 1px solid #555;
 }
 
 h1 {
     margin-top: 0;
-    color: #fff; /* White text */
+    color: #fff;
     font-size: 36px;
 }
 
 .quiz-container {
     padding: 20px;
-    text-align: center; /* Center all text */
+    text-align: center; 
 }
 
 h2 {
     margin-top: 0;
     font-size: 24px;
-    color: #fff; /* White text */
+    color: #fff; 
 }
 
 .answer-options {
     margin-top: 20px;
-    text-align: center; /* Center all text */
+    text-align: center; 
 }
 
 label {
     display: block;
     margin-bottom: 10px;
     font-size: 18px;
-    color: #ccc; /* Light gray text */
+    color: #ccc; 
 }
 
 input[type="radio"] {
@@ -60,8 +60,8 @@ input[type="radio"] {
 }
 
 #submit-btn, #restart-btn {
-    background-color: #4CAF50; /* Green button */
-    color: #fff; /* White text */
+    background-color: #4CAF50;
+    color: #fff;
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
@@ -70,30 +70,29 @@ input[type="radio"] {
 }
 
 #submit-btn:hover, #restart-btn:hover {
-    background-color: #3e8e41; /* Dark green button */
+    background-color: #3e8e41; 
 }
 
 #result {
     font-weight: bold;
-    color: #fff; /* White text */
+    color: #fff; 
     margin-top: 20px;
 }
 
 #score {
     font-size: 18px;
     font-weight: bold;
-    color: #fff; /* White text */
+    color: #fff; 
     margin-top: 10px;
 }
 
 #level {
     font-size: 18px;
     font-weight: bold;
-    color: #fff; /* White text */
+    color: #fff; 
     margin-top: 10px;
 }
 
-/* Add some spacing between elements */
 .quiz-container > * {
     margin-bottom: 20px;
 }

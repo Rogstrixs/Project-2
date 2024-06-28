@@ -49,7 +49,6 @@ const questions = [
         answers: ["Naruto", "Hinata", "Itachi", "Gaara"],
         correct: 3
     },
-    // Add more questions here...
 ];
 
 let currentQuestion = 0;
